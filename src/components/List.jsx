@@ -29,7 +29,6 @@ const List = ({ participants, getAll, loader }) => {
         participants.map(participant => (
           <Item
             participant={participant}
-            loader={loader}
             key={participant.id}></Item>
         ))}
     </>
