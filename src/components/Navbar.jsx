@@ -1,4 +1,4 @@
-import { FaHeart, FaHome, FaMeteor, FaUserAstronaut } from 'react-icons/fa';
+import { FaHeart, FaHome, FaMeteor, FaQuestion, FaUserAstronaut } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
@@ -19,6 +19,9 @@ const Navbar = () => {
         </NavLink>
         <NavLink to={'/about'} className={isActiveLink}>
           <FaHeart size={'1.2rem'} className="me-2 text-danger" /> About
+        </NavLink>
+        <NavLink to={'/faq'} className={isActiveLink}>
+          <FaQuestion size={'1.2rem'} className="me-2 text-danger" /> FAQ
         </NavLink>
       </div>
     </>

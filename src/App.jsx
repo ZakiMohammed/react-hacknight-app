@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Register from './pages/Register';
 import Participants from './pages/Participants';
+import Faq from './pages/Faq';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/participants" element={<Participants />} />
             <Route path="/about" element={<About />} />
+            <Route path="/faq" element={<Faq />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>

@@ -8,8 +8,6 @@ import ParticipantService from '../services/ParticipantService';
 import Loader from '../components/Loader';
 
 const Register = () => {
-  const navigate = useNavigate();
-
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [country, setCountry] = useState('');
@@ -21,13 +19,18 @@ const Register = () => {
   const handleCountry = e => setCountry(e.target.value);
   const handleGitHubLink = e => setGitHubLink(e.target.value);
 
+  const navigate = useNavigate();
+
+  const isValid = () =>
+    fullName === '' || email === '' || country === '' || gitHubLink === '';
+
   const handleSubmit = async event => {
     try {
       event.preventDefault();
 
       setLoader(true);
 
-      if (fullName === '') {
+      if (isValid()) {
         window.alert('Please fill the form');
         return;
       }
@@ -51,10 +54,17 @@ const Register = () => {
     }
   };
 
+  const handleReset = () => {
+    setFullName('');
+    setEmail('');
+    setCountry('');
+    setGitHubLink('');
+  };
+
   return (
     <>
       {loader && <Loader />}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} onReset={handleReset}>
         <div className="mb-3">
           <input
             type="text"
@@ -88,7 +98,7 @@ const Register = () => {
         <button className="btn btn-danger me-2" type="submit">
           <FaMeteor /> Register
         </button>
-        <button className="btn btn-dark" type="submit">
+        <button className="btn btn-dark" type="reset">
           <FaRotate /> Reset
         </button>
       </form>
